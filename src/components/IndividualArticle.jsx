@@ -22,7 +22,7 @@ const IndividualArticle = () => {
     <Container text data-cy="displayed-article">
       <h3 data-cy="article-title">{article?.title}</h3>
       <p data-cy="article-authors">By: {article?.authors[0].name}</p>
-      {authenticated ? (
+      {!authenticated ? (
         <div>
           <Card fluid data-cy="register-wall">
             <h2 align="center">
@@ -52,7 +52,7 @@ const IndividualArticle = () => {
             </Button>
           </Card>
         </div>
-      ) : subscribed ? (
+      ) : !subscribed ? (
         <Card fluid data-cy="paywall">
           <h2 align="center">
             To read this article please consider subscribing
