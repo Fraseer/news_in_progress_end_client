@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Button, Card, Image } from "semantic-ui-react";
+import { Container, Button, Card } from "semantic-ui-react";
 import { Article } from "../modules/article";
 import { Link } from "react-router-dom";
 
@@ -78,7 +78,6 @@ const IndividualArticle = () => {
       ) : (
         <>
           <br />
-          {/* <Image>{article.image}</Image> */}
           <p data-cy="article-date">Published on: {date}</p>
           <div className="body" data-cy="article-body">
             {article?.body}
