@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Button, Card } from "semantic-ui-react";
+import { Container, Button, Card, Image } from "semantic-ui-react";
 import { Article } from "../modules/article";
 import { Link } from "react-router-dom";
 
@@ -11,16 +11,18 @@ const IndividualArticle = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     Article.show(id);
   }, [id]);
+
+  const milliseconds = Date.parse(article?.updated_at)
+  const date = new Date(milliseconds).toLocaleDateString()
 
   return (
     <Container text data-cy="displayed-article">
       <h3 data-cy="article-title">{article?.title}</h3>
       <p data-cy="article-authors">By: {article?.authors[0].name}</p>
-      {!authenticated ? (
+      {authenticated ? (
         <div>
           <Card fluid data-cy="register-wall">
             <h2 align="center">
@@ -50,7 +52,7 @@ const IndividualArticle = () => {
             </Button>
           </Card>
         </div>
-      ) : !subscribed ? (
+      ) : subscribed ? (
         <Card fluid data-cy="paywall">
           <h2 align="center">
             To read this article please consider subscribing
@@ -76,7 +78,8 @@ const IndividualArticle = () => {
       ) : (
         <>
           <br />
-          <p data-cy="article-date">Published on: {article?.created_at}</p>
+          {/* <Image>{article.image}</Image> */}
+          <p data-cy="article-date">Published on: {date}</p>
           <div className="body" data-cy="article-body">
             {article?.body}
           </div>
