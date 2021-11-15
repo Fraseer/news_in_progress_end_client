@@ -11,10 +11,12 @@ const IndividualArticle = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     Article.show(id);
   }, [id]);
+
+  const milliseconds = Date.parse(article?.updated_at)
+  const date = new Date(milliseconds).toLocaleDateString()
 
   return (
     <Container text data-cy="displayed-article">
@@ -76,7 +78,7 @@ const IndividualArticle = () => {
       ) : (
         <>
           <br />
-          <p data-cy="article-date">Published on: {article?.created_at}</p>
+          <p data-cy="article-date">Published on: {date}</p>
           <div className="body" data-cy="article-body">
             {article?.body}
           </div>
