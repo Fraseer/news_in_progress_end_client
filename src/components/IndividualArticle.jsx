@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { Container, Button, Card } from "semantic-ui-react";
+import { Container, Button, Card, Image } from "semantic-ui-react";
 import { Article } from "../modules/article";
 import { Link } from "react-router-dom";
 
@@ -22,6 +22,8 @@ const IndividualArticle = () => {
     <Container text data-cy="displayed-article">
       <h3 data-cy="article-title">{article?.title}</h3>
       <p data-cy="article-authors">By: {article?.authors[0].name}</p>
+      {/* <img src={article?.image} /> */}
+      <Image src="https://picsum.photos/300" centered size="large" />
       {!authenticated ? (
         <div>
           <Card fluid data-cy="register-wall">

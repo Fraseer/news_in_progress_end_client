@@ -12,7 +12,7 @@ import { StripeProvider } from "react-stripe-elements";
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
   axios.defaults.baseURL = "http://localhost:3000";
 } else {
-  axios.defaults.baseURL = "https://news-in-progress-api.herokuapp.com";
+  axios.defaults.baseURL = " https://news-in-progress-fh.herokuapp.com/";
 }
 
 window.store = store;
