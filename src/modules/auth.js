@@ -4,7 +4,7 @@ let url = "";
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
   url = "http://localhost:3000";
 } else {
-  url = "https://news-in-progress-api.herokuapp.com";
+  url = "https://news-in-progress-fh.herokuapp.com";
 }
 const auth = new JtockAuth({
   host: url,
