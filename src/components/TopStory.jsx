@@ -13,7 +13,7 @@ const TopStory = () => {
       <Grid.Column
         data-cy="top-story"
         as={Link}
-        to={{ pathname: `/articles/${topStory.id}` }}
+        to={{ pathname: `/articles/${topStory?.id}` }}
       >
         <Header data-cy="title">{topStory?.title}</Header>
         <Item data-cy="lede">{topStory?.lede}</Item>
